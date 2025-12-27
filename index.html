@@ -3,45 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FutureHire | Job Portal</title>
+<title>ProHire | Job Portal</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Orbitron', sans-serif;
+    font-family: "Segoe UI", sans-serif;
 }
 
 body {
-    background: radial-gradient(circle at top, #050014, #000);
-    color: #00ffff;
-    overflow-x: hidden;
+    background: #f4f6f9;
+    color: #333;
 }
 
 /* NAVBAR */
 nav {
+    background: #1f2933;
+    color: white;
+    padding: 15px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 60px;
-    background: rgba(0,0,0,0.7);
-    box-shadow: 0 0 20px #00ffff55;
-    position: sticky;
-    top: 0;
-    z-index: 100;
 }
 
 nav h2 {
-    color: cyan;
+    font-weight: 600;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 25px;
 }
 
 nav ul li {
@@ -50,86 +44,70 @@ nav ul li {
 }
 
 nav ul li:hover {
-    color: white;
-    text-shadow: 0 0 10px cyan;
+    color: #4f8cff;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 80px 20px;
+    padding: 60px 20px;
+    background: white;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    text-shadow: 0 0 20px cyan;
+    font-size: 36px;
 }
 
 .hero p {
     margin-top: 10px;
-    opacity: 0.9;
+    color: #555;
 }
 
 /* SEARCH */
 .search-box {
-    display: flex;
-    justify-content: center;
-    margin: 30px auto;
     max-width: 500px;
+    margin: 30px auto;
+    display: flex;
 }
 
 .search-box input {
-    width: 100%;
-    padding: 15px;
-    border-radius: 8px;
-    border: 2px solid cyan;
-    background: transparent;
-    color: cyan;
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px 0 0 6px;
     outline: none;
 }
 
-/* JOB LIST */
+.search-box button {
+    padding: 12px 20px;
+    border: none;
+    background: #4f8cff;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 6px 6px 0;
+}
+
+/* JOBS */
 .jobs {
-    max-width: 900px;
+    max-width: 1000px;
     margin: auto;
-    padding: 30px;
+    padding: 40px 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
 }
 
 .job {
-    background: rgba(0, 255, 255, 0.08);
-    border: 1px solid cyan;
-    border-radius: 12px;
+    background: white;
+    border-radius: 8px;
     padding: 25px;
+    border: 1px solid #ddd;
     transition: 0.3s;
-    position: relative;
-    overflow: hidden;
-}
-
-.job::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, transparent, cyan, transparent);
-    opacity: 0;
-    transition: 0.4s;
-}
-
-.job:hover::before {
-    opacity: 0.6;
-    animation: glow 0.8s linear;
-}
-
-@keyframes glow {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
 }
 
 .job:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 20px cyan;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .job h3 {
@@ -137,32 +115,32 @@ nav ul li:hover {
 }
 
 .job span {
+    color: #555;
     font-size: 14px;
-    opacity: 0.8;
 }
 
 .job button {
     margin-top: 15px;
     padding: 10px;
     width: 100%;
-    background: cyan;
     border: none;
+    background: #1f2933;
+    color: white;
     cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
+    border-radius: 5px;
 }
 
 .job button:hover {
-    background: white;
+    background: #4f8cff;
 }
 
 /* FOOTER */
 footer {
+    background: #1f2933;
+    color: white;
     text-align: center;
     padding: 20px;
-    background: #000;
     margin-top: 40px;
-    color: cyan;
 }
 </style>
 </head>
@@ -170,7 +148,7 @@ footer {
 <body>
 
 <nav>
-    <h2>FutureHire</h2>
+    <h2>ProHire</h2>
     <ul>
         <li>Home</li>
         <li>Jobs</li>
@@ -180,50 +158,51 @@ footer {
 </nav>
 
 <section class="hero">
-    <h1>Find Your Future Job</h1>
-    <p>Explore high-paying tech jobs in a futuristic way</p>
+    <h1>Find Your Next Career Move</h1>
+    <p>Browse verified job opportunities from top companies</p>
 </section>
 
 <div class="search-box">
-    <input type="text" id="search" placeholder="Search job title..." onkeyup="searchJobs()">
+    <input type="text" id="search" placeholder="Search job title...">
+    <button onclick="searchJobs()">Search</button>
 </div>
 
 <section class="jobs" id="jobList">
 
     <div class="job">
         <h3>Frontend Developer</h3>
-        <span>📍 Remote | 💰 ₹8–12 LPA</span>
+        <span>📍 Remote | ₹8–12 LPA</span>
         <button>Apply Now</button>
     </div>
 
     <div class="job">
         <h3>Backend Developer</h3>
-        <span>📍 Bengaluru | 💰 ₹10–15 LPA</span>
+        <span>📍 Bengaluru | ₹10–15 LPA</span>
         <button>Apply Now</button>
     </div>
 
     <div class="job">
         <h3>UI/UX Designer</h3>
-        <span>📍 Remote | 💰 ₹6–9 LPA</span>
+        <span>📍 Remote | ₹6–9 LPA</span>
         <button>Apply Now</button>
     </div>
 
     <div class="job">
-        <h3>Data Scientist</h3>
-        <span>📍 Hyderabad | 💰 ₹12–18 LPA</span>
+        <h3>Data Analyst</h3>
+        <span>📍 Hyderabad | ₹7–11 LPA</span>
         <button>Apply Now</button>
     </div>
 
     <div class="job">
-        <h3>Cyber Security Analyst</h3>
-        <span>📍 Pune | 💰 ₹9–14 LPA</span>
+        <h3>DevOps Engineer</h3>
+        <span>📍 Pune | ₹12–18 LPA</span>
         <button>Apply Now</button>
     </div>
 
 </section>
 
 <footer>
-    © 2025 FutureHire — Designed for the Future
+    © 2025 ProHire. All rights reserved.
 </footer>
 
 <script>
