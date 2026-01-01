@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProHire | Job Portal</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>ProHire | Home</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -12,72 +11,29 @@
 <nav>
     <h2>ProHire</h2>
     <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#jobs">Jobs</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
 
-<section class="hero" id="home">
-    <h1>Find Your Next Career Move</h1>
-    <p>Discover verified job opportunities from top companies</p>
+<section class="hero">
+    <h1>PROHIRE</h1>
+    <p>Your Gateway to Top Tech Careers</p>
+    <a href="jobs.html" class="btn">Explore Jobs</a>
 </section>
 
-<div class="search-box">
-    <input type="text" id="search" placeholder="Search job...">
-    <button onclick="searchJobs()">Search</button>
-</div>
-
-<section class="jobs" id="jobs">
-    <div class="job">
-        <h3>Frontend Developer</h3>
-        <p>Remote • ₹8–12 LPA</p>
-        <button onclick="openJob('Frontend Developer','Google','⭐ 4.6/5')">View Details</button>
-    </div>
-
-    <div class="job">
-        <h3>Backend Developer</h3>
-        <p>Bengaluru • ₹10–15 LPA</p>
-        <button onclick="openJob('Backend Developer','Amazon','⭐ 4.5/5')">View Details</button>
-    </div>
-
-    <div class="job">
-        <h3>UI/UX Designer</h3>
-        <p>Remote • ₹6–9 LPA</p>
-        <button onclick="openJob('UI/UX Designer','Adobe','⭐ 4.4/5')">View Details</button>
-    </div>
-</section>
-
-<section class="section" id="about">
-    <h2>About Me</h2>
+<section class="section">
+    <h2>Who We Are</h2>
     <p>
-        I'm Vatsal Varma, a passionate developer focused on building modern,
-        scalable and user-friendly web applications.
+        ProHire is a modern job portal designed to connect talented professionals 
+        with trusted companies. We focus on transparency, growth, and innovation.
     </p>
 </section>
 
-<section class="section contact" id="contact">
-    <h2>Contact Me</h2>
-    <a href="https://github.com/vatsalvarma" target="_blank">🐙 GitHub</a>
-    <a href="https://linkedin.com/in/vatsalvarma" target="_blank">💼 LinkedIn</a>
-    <a href="mailto:gamesvatsal99@gmail.com">📧 gamesvatsal99@gmail.com</a>
-</section>
+<footer>© 2025 ProHire. All rights reserved.</footer>
 
-<footer>
-    © 2025 ProHire. All rights reserved.
-</footer>
-
-<!-- Job Modal -->
-<div class="modal" id="jobModal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h3 id="jobTitle"></h3>
-        <p><b>Company:</b> <span id="company"></span></p>
-        <p><b>Reviews:</b> <span id="review"></span></p>
-    </div>
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>
