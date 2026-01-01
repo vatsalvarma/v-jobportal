@@ -1,6 +1,6 @@
 # ProHire — Job Portal 🌐
 
-Welcome to **ProHire**, a clean and modern job portal web application where users can browse verified job opportunities from top companies. This project is lightweight, responsive, and easy to use — perfect for showcasing job listings or integrating into larger platforms.
+Welcome to **ProHire**, a clean and modern job portal web application where users can browse verified job opportunities from top companies. This project is lightweight, responsive, and easy to use — perfect for showcasing and integrating into larger platforms.
 
 🔗 **Live Demo:** https://vatsalvarma.github.io/v-jobportal/ 
 
