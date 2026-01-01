@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f4f6f9;
+    color: #333;
+}
+
+/* NAVBAR */
+nav {
+    background: #1f2933;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a:hover {
+    color: #4f8cff;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: white;
+}
+
+/* SEARCH */
+.search-box {
+    max-width: 500px;
+    margin: 30px auto;
+    display: flex;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px 0 0 6px;
+}
+
+.search-box button {
+    padding: 12px 20px;
+    border: none;
+    background: #4f8cff;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 6px 6px 0;
+}
+
+/* JOBS */
+.jobs {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.job {
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+}
+
+.job:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.job button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    background: #1f2933;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* SECTION */
+.section {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+/* CONTACT */
+.contact a {
+    display: block;
+    margin: 10px;
+    color: #4f8cff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* FOOTER */
+footer {
+    background: #1f2933;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 22px;
+}
