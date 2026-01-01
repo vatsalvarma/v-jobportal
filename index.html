@@ -2,8 +2,179 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>ProHire | Home</title>
-<link rel="stylesheet" href="style.css">
+<title>ProHire | Job Portal</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f5f7fb;
+    scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+nav {
+    background: #1f2933;
+    color: white;
+    padding: 18px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #4f8cff;
+}
+
+/* SECTIONS */
+section {
+    min-height: 100vh;
+    padding: 80px 10%;
+    display: none;
+    animation: fadeIn 0.7s ease;
+}
+
+section.active {
+    display: block;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding-top: 120px;
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #555;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 30px;
+    background: #4f8cff;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #376fe0;
+}
+
+/* SEARCH */
+.search-box {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.search-box input {
+    width: 60%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* JOB CARDS */
+.jobs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.job {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.job:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.job button {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    background: #1f2933;
+    color: white;
+    border-radius: 5px;
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal button {
+    margin-top: 15px;
+}
+
+/* PROFILE / ABOUT / CONTACT */
+.card {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    margin-bottom: 15px;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
 
 <body>
@@ -11,29 +182,127 @@
 <nav>
     <h2>ProHire</h2>
     <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="jobs.html">Jobs</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('jobs')">Jobs</a></li>
+        <li><a onclick="showPage('profile')">Profile</a></li>
+        <li><a onclick="showPage('about')">About</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
     </ul>
 </nav>
 
-<section class="hero">
-    <h1>PROHIRE</h1>
-    <p>Your Gateway to Top Tech Careers</p>
-    <a href="jobs.html" class="btn">Explore Jobs</a>
+<!-- HOME -->
+<section id="home" class="active">
+    <div class="hero">
+        <h1>PROHIRE</h1>
+        <p>Your Gateway to Top Tech Careers</p>
+        <a class="btn" onclick="showPage('jobs')">Explore Jobs</a>
+    </div>
 </section>
 
-<section class="section">
-    <h2>Who We Are</h2>
-    <p>
-        ProHire is a modern job portal designed to connect talented professionals 
-        with trusted companies. We focus on transparency, growth, and innovation.
-    </p>
+<!-- JOBS -->
+<section id="jobs">
+    <div class="search-box">
+        <input type="text" id="search" placeholder="Search jobs..." onkeyup="searchJobs()">
+    </div>
+
+    <div class="jobs">
+        <div class="job" onclick="openJob('Frontend Developer','Google','Great culture & growth')">
+            <h3>Frontend Developer</h3>
+            <p>Google • Remote</p>
+            <button>Apply</button>
+        </div>
+
+        <div class="job" onclick="openJob('Backend Developer','Amazon','High performance teams')">
+            <h3>Backend Developer</h3>
+            <p>Amazon • Bengaluru</p>
+            <button>Apply</button>
+        </div>
+
+        <div class="job" onclick="openJob('UI/UX Designer','Adobe','Creative environment')">
+            <h3>UI/UX Designer</h3>
+            <p>Adobe • Remote</p>
+            <button>Apply</button>
+        </div>
+
+        <div class="job" onclick="openJob('DevOps Engineer','Netflix','Fast-paced culture')">
+            <h3>DevOps Engineer</h3>
+            <p>Netflix • Pune</p>
+            <button>Apply</button>
+        </div>
+    </div>
 </section>
 
-<footer>© 2025 ProHire. All rights reserved.</footer>
+<!-- PROFILE -->
+<section id="profile">
+    <div class="card">
+        <h2>Your Profile</h2>
+        <p><b>Name:</b> Vatsal Varma</p>
+        <p><b>Role:</b> Full Stack Developer</p>
+        <p><b>Skills:</b> Java, Spring Boot, React, SQL</p>
+        <p><b>Experience:</b> 2+ Years</p>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="card">
+        <h2>About ProHire</h2>
+        <p>
+            ProHire connects talented professionals with trusted companies.
+            We focus on innovation, transparency, and growth.
+        </p>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="card">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:gamesvatsal99@gmail.com">gamesvatsal99@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/vatsalvarma" target="_blank">github.com/vatsalvarma</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com" target="_blank">linkedin.com</a></p>
+    </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="jobModal">
+    <div class="modal-content">
+        <h3 id="jobTitle"></h3>
+        <p><b>Company:</b> <span id="company"></span></p>
+        <p><b>Review:</b> <span id="review"></span></p>
+        <button onclick="applyJob()">Apply Now</button>
+        <button onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script>
+function showPage(id) {
+    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+function searchJobs() {
+    let val = document.getElementById("search").value.toLowerCase();
+    document.querySelectorAll(".job").forEach(job => {
+        job.style.display = job.innerText.toLowerCase().includes(val) ? "block" : "none";
+    });
+}
+
+function openJob(title, company, review) {
+    document.getElementById("jobTitle").innerText = title;
+    document.getElementById("company").innerText = company;
+    document.getElementById("review").innerText = review;
+    document.getElementById("jobModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("jobModal").style.display = "none";
+}
+
+function applyJob() {
+    alert("Application submitted successfully!");
+}
+</script>
 
 </body>
 </html>
