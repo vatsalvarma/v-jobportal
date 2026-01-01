@@ -13,14 +13,20 @@
 }
 
 body {
-    background: #f5f7fb;
-    scroll-behavior: smooth;
+    background: url("istockphoto-1279104620-1024x1024.jpg") no-repeat center center/cover;
+    min-height: 100vh;
+    color: white;
+}
+
+/* DARK OVERLAY */
+.overlay {
+    background: rgba(0, 0, 0, 0.75);
+    min-height: 100vh;
 }
 
 /* NAVBAR */
 nav {
-    background: #1f2933;
-    color: white;
+    background: rgba(0, 0, 0, 0.85);
     padding: 18px 50px;
     display: flex;
     justify-content: space-between;
@@ -30,10 +36,14 @@ nav {
     z-index: 100;
 }
 
+nav h2 {
+    color: white;
+}
+
 nav ul {
+    list-style: none;
     display: flex;
     gap: 25px;
-    list-style: none;
 }
 
 nav a {
@@ -48,10 +58,9 @@ nav a:hover {
 
 /* SECTIONS */
 section {
-    min-height: 100vh;
-    padding: 80px 10%;
     display: none;
-    animation: fadeIn 0.7s ease;
+    padding: 90px 10%;
+    animation: fadeIn 0.8s ease;
 }
 
 section.active {
@@ -61,45 +70,46 @@ section.active {
 /* HERO */
 .hero {
     text-align: center;
-    padding-top: 120px;
+    margin-top: 80px;
 }
 
 .hero h1 {
-    font-size: 50px;
+    font-size: 52px;
     margin-bottom: 15px;
 }
 
 .hero p {
-    font-size: 18px;
-    color: #555;
+    font-size: 20px;
+    opacity: 0.9;
 }
 
 .btn {
+    margin-top: 30px;
     display: inline-block;
-    margin-top: 25px;
     padding: 14px 30px;
     background: #4f8cff;
     color: white;
-    border-radius: 6px;
+    border-radius: 8px;
     text-decoration: none;
     transition: 0.3s;
 }
 
 .btn:hover {
-    background: #376fe0;
+    background: #346cff;
 }
 
 /* SEARCH */
 .search-box {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .search-box input {
     width: 60%;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
 }
 
 /* JOB CARDS */
@@ -110,41 +120,49 @@ section.active {
 }
 
 .job {
-    background: white;
+    background: rgba(255,255,255,0.1);
     padding: 25px;
-    border-radius: 10px;
-    cursor: pointer;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
     transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
 }
 
 .job:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255,255,255,0.18);
+}
+
+.job h3 {
+    margin-bottom: 5px;
+}
+
+.job p {
+    opacity: 0.85;
 }
 
 .job button {
     margin-top: 15px;
+    width: 100%;
     padding: 10px;
     border: none;
-    width: 100%;
-    background: #1f2933;
+    border-radius: 6px;
+    background: #4f8cff;
     color: white;
-    border-radius: 5px;
 }
 
 /* MODAL */
 .modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.7);
     display: none;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
-    background: white;
+    background: #1f2933;
     padding: 30px;
     border-radius: 10px;
     width: 300px;
@@ -155,29 +173,27 @@ section.active {
     margin-top: 15px;
 }
 
-/* PROFILE / ABOUT / CONTACT */
+/* CARDS */
 .card {
     max-width: 700px;
     margin: auto;
-    background: white;
+    background: rgba(255,255,255,0.12);
     padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-
-.card h2 {
-    margin-bottom: 15px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
 }
 
 /* ANIMATION */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
 }
 </style>
 </head>
 
 <body>
+
+<div class="overlay">
 
 <nav>
     <h2>ProHire</h2>
@@ -206,28 +222,29 @@ section.active {
     </div>
 
     <div class="jobs">
-        <div class="job" onclick="openJob('Frontend Developer','Google','Great culture & growth')">
-            <h3>Frontend Developer</h3>
-            <p>Google • Remote</p>
-            <button>Apply</button>
+        <div class="job" onclick="openJob('Frontend Developer','Google','Excellent work culture')">
+            <h3>Frontend Developer</h3><p>Google • Remote</p><button>Apply</button>
         </div>
-
-        <div class="job" onclick="openJob('Backend Developer','Amazon','High performance teams')">
-            <h3>Backend Developer</h3>
-            <p>Amazon • Bengaluru</p>
-            <button>Apply</button>
+        <div class="job" onclick="openJob('Backend Developer','Amazon','Fast-paced environment')">
+            <h3>Backend Developer</h3><p>Amazon • Bengaluru</p><button>Apply</button>
         </div>
-
-        <div class="job" onclick="openJob('UI/UX Designer','Adobe','Creative environment')">
-            <h3>UI/UX Designer</h3>
-            <p>Adobe • Remote</p>
-            <button>Apply</button>
+        <div class="job" onclick="openJob('UI/UX Designer','Adobe','Creative workspace')">
+            <h3>UI/UX Designer</h3><p>Adobe • Remote</p><button>Apply</button>
         </div>
-
-        <div class="job" onclick="openJob('DevOps Engineer','Netflix','Fast-paced culture')">
-            <h3>DevOps Engineer</h3>
-            <p>Netflix • Pune</p>
-            <button>Apply</button>
+        <div class="job" onclick="openJob('DevOps Engineer','Netflix','High impact role')">
+            <h3>DevOps Engineer</h3><p>Netflix • Pune</p><button>Apply</button>
+        </div>
+        <div class="job" onclick="openJob('Data Scientist','Meta','AI focused team')">
+            <h3>Data Scientist</h3><p>Meta • Hyderabad</p><button>Apply</button>
+        </div>
+        <div class="job" onclick="openJob('Cloud Engineer','AWS','Cloud innovation')">
+            <h3>Cloud Engineer</h3><p>AWS • Remote</p><button>Apply</button>
+        </div>
+        <div class="job" onclick="openJob('QA Engineer','Microsoft','Quality driven')">
+            <h3>QA Engineer</h3><p>Microsoft • Noida</p><button>Apply</button>
+        </div>
+        <div class="job" onclick="openJob('Full Stack Dev','Startup','Fast growth startup')">
+            <h3>Full Stack Dev</h3><p>Startup • Remote</p><button>Apply</button>
         </div>
     </div>
 </section>
@@ -248,8 +265,8 @@ section.active {
     <div class="card">
         <h2>About ProHire</h2>
         <p>
-            ProHire connects talented professionals with trusted companies.
-            We focus on innovation, transparency, and growth.
+            ProHire connects top professionals with trusted companies.
+            Our goal is to create meaningful careers with transparency and growth.
         </p>
     </div>
 </section>
@@ -282,7 +299,7 @@ function showPage(id) {
 }
 
 function searchJobs() {
-    let val = document.getElementById("search").value.toLowerCase();
+    const val = document.getElementById("search").value.toLowerCase();
     document.querySelectorAll(".job").forEach(job => {
         job.style.display = job.innerText.toLowerCase().includes(val) ? "block" : "none";
     });
@@ -304,5 +321,6 @@ function applyJob() {
 }
 </script>
 
+</div>
 </body>
 </html>
