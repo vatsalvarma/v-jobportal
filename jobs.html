@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Jobs | ProHire</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <h2>ProHire</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="search-box">
+    <input type="text" id="search" placeholder="Search jobs..." onkeyup="searchJobs()">
+</div>
+
+<section class="jobs">
+
+    <!-- JOB CARD -->
+    <div class="job">
+        <h3>Frontend Developer</h3>
+        <p>Google • Remote • ₹8–12 LPA</p>
+        <p>⭐ 4.6 | Modern UI, React, CSS</p>
+        <button onclick="applyJob('Frontend Developer')">Apply</button>
+    </div>
+
+    <div class="job">
+        <h3>Backend Developer</h3>
+        <p>Amazon • Bengaluru • ₹10–15 LPA</p>
+        <p>⭐ 4.5 | Node, APIs, Databases</p>
+        <button onclick="applyJob('Backend Developer')">Apply</button>
+    </div>
+
+    <div class="job">
+        <h3>UI/UX Designer</h3>
+        <p>Adobe • Remote • ₹6–9 LPA</p>
+        <p>⭐ 4.4 | Figma, UX Research</p>
+        <button onclick="applyJob('UI/UX Designer')">Apply</button>
+    </div>
+
+    <div class="job">
+        <h3>Data Analyst</h3>
+        <p>Meta • Hyderabad • ₹7–11 LPA</p>
+        <p>⭐ 4.3 | SQL, Python</p>
+        <button onclick="applyJob('Data Analyst')">Apply</button>
+    </div>
+
+    <div class="job">
+        <h3>DevOps Engineer</h3>
+        <p>Netflix • Pune • ₹12–18 LPA</p>
+        <p>⭐ 4.7 | AWS, Docker</p>
+        <button onclick="applyJob('DevOps Engineer')">Apply</button>
+    </div>
+
+    <div class="job">
+        <h3>Mobile App Developer</h3>
+        <p>Swiggy • Remote • ₹9–14 LPA</p>
+        <p>⭐ 4.5 | Flutter, Android</p>
+        <button onclick="applyJob('Mobile Developer')">Apply</button>
+    </div>
+
+    <div class="job">
+        <h3>Cyber Security Analyst</h3>
+        <p>IBM • Pune • ₹10–16 LPA</p>
+        <p>⭐ 4.6 | Security, SOC</p>
+        <button onclick="applyJob('Cyber Security Analyst')">Apply</button>
+    </div>
+
+    <div class="job">
+        <h3>AI Engineer</h3>
+        <p>OpenAI • Remote • ₹15–25 LPA</p>
+        <p>⭐ 4.8 | ML, AI Models</p>
+        <button onclick="applyJob('AI Engineer')">Apply</button>
+    </div>
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
