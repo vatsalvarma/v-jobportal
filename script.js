@@ -1,11 +1,16 @@
 function searchJobs() {
-    let input = document.getElementById("search").value.toLowerCase();
+    const value = document.getElementById("search").value.toLowerCase();
     document.querySelectorAll(".job").forEach(job => {
-        job.style.display = job.innerText.toLowerCase().includes(input)
+        job.style.display = job.innerText.toLowerCase().includes(value)
             ? "block"
             : "none";
     });
 }
+
+function applyJob(role) {
+    alert("Application submitted for " + role + " ✅");
+}
+
 
 function openJob(title, company, review) {
     document.getElementById("jobTitle").innerText = title;
